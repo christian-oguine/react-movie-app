@@ -1,4 +1,4 @@
-# React Movie App 🎬
+# React Movie App 
 
 A small React project built with **Vite** and **Tailwind CSS** to practice core React concepts like **components**, **routing**, and **global state** (Favorites) using **Context API** with **localStorage persistence**.
 
