@@ -1,16 +1,95 @@
-# React + Vite
+# React Movie App 🎬
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React project built with **Vite** and **Tailwind CSS** to practice core React concepts like **components**, **routing**, and **global state** (Favorites) using **Context API** with **localStorage persistence**.
 
-Currently, two official plugins are available:
+This app uses a **local movies dataset** (`src/data/movies.js`) — no external movie API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Movie list (from local data)
+- Movie details page (`/movie/:id`)
+- Favorite / unfavorite movies (heart icon)
+- Favorites saved in `localStorage` (still there after refresh)
+- Responsive Tailwind grid UI
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- React + Vite
+- Tailwind CSS
+- React Router DOM
+- Context API (Favorites store)
+- Iconify (icons)
+
+---
+
+## Folder Structure
+
+```
+src/
+  context/
+    FavoritesContext.jsx
+  data/
+    movies.js
+  pages/
+    Home.jsx
+    MovieDetails.jsx
+  App.jsx
+  main.jsx
+  index.css
+```
+
+---
+
+## Setup & Run
+
+### Install dependencies
+```bash
+npm install
+```
+
+### Start development server
+```bash
+npm run dev
+```
+
+Open the URL shown in the terminal (usually `http://localhost:5173`).
+
+### Build for production
+```bash
+npm run build
+```
+
+### Preview production build
+```bash
+npm run preview
+```
+
+---
+
+## Routing
+
+- `/` → Home (movie grid)
+- `/movie/:id` → Movie Details
+
+The details page reads the `id` from the URL using `useParams()` and finds the movie from `src/data/movies.js`.
+
+---
+
+## Favorites (Context API)
+
+Favorites are handled in `FavoritesContext.jsx`:
+- `favorites` holds the list
+- `toggleFavorite(movie)` adds/removes
+- `isFavorite(id)` checks if favorited
+
+Favorites are saved automatically to `localStorage`.
+
+---
+
+## Author
+
+Christian Oguine
